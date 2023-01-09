@@ -1,14 +1,19 @@
 #!/usr/bin/python3
-
 def max_integer(my_list=[]):
-    if len(my_list) == 0:
-        return
+    """Gets the largest integer in a list of integers
 
-    large = my_list[0]
-    for i in range(1, len(my_list)):
-        if large < my_list[i]:
-           large = my_list[i]
-        else:
-            continue
-        return large
+    Args:
+        my_list (list, optional): list of integers. Defaults to [].
 
+        Returns:
+            integer: largest integer in my_list
+        """
+        list_len = len(my_list)
+        max = float('-inf')
+
+        if (list_len == 0):
+            return None
+        for i in my_list:
+            if (i >= max):
+                max = i
+        return max
