@@ -11,6 +11,4 @@ def only_diff_elements(set_1, set_2):
     Returns:
         set: set containing elements not intersecting
     """
-
     return set(set_1 - set_2).union(set_2 - set_1)
-
