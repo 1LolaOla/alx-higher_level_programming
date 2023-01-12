@@ -1,9 +1,21 @@
 #!/usr/bin/python3
-def complex_delete(my_dict, value):
-     keys_to_del = []
-     for key in my_dict:
-         if my_dict[key] == value:
-             keys_to_del.append(key)
-     for key in keys_to_del:
-         del my_dict[key]
-     return my_dict
+
+def complex_delete(a_dictionary, value):
+    """deletes all values equal to given value
+    in python dictionary
+
+    Args:
+        a_dictionary (dict): dictionary to delete from
+        value (any): value in a dictionary
+
+        Returns:
+            dict: modified dictionary
+        """
+        del_key_list = []
+        if len(a_dictionary) > 0 and isinstance(a_dictionary, dict):
+            for k, v in a_dictionary.items():
+                if (v == value):
+                    del_key_list.append(k)
+        for i in del_key_list:
+            del (a_dictionary[i])
+        return a_dictionary
