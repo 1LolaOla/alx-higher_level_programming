@@ -44,7 +44,7 @@ class Rectangle:
            return total
         for i in range(self.__height):
             total += ("#" * self.__width)
-        if i is not self.__height - 1:
+            if i is not self.__height - 1:
             total += "\n"
         return total
 
