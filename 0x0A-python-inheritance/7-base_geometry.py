@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module implements a Geometry class
-   """
+"""
 
 
 class BaseGeometry:
@@ -13,7 +13,7 @@ class BaseGeometry:
             Raises:
                     Exception: area() is not implemented
             """
-         raise Exception("area() is not implemented")
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """validates an integer
