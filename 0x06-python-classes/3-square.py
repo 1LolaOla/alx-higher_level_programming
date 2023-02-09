@@ -1,30 +1,32 @@
 #!/usr/bin/python3
-""" defines a square """
-
+"""
+A module that sets size of square as private field
+"""
 
 class Square:
-    """ square with private instance attribute size """
+    """Square class
 
-    ef __init__(self, size=0):
-        """
-        initializes square
+    private instance field(s) : size
+    methods: __init__
+    """
+
+    def __init__(self, size=0):
+        """initializes the class
+
         Args:
-            size: size of side of square
+            size (int, optional): size of square. Defaults to 0.
         """
-
-        if type(size) is int:
-            if size < 0:
-                raise ValueError('size must be >= 0')
-            else:
-                self.__size = size
+        if (type(size) is not int):
+            raise TypeError("size must be an integer")
+        elif (size < 0):
+            raise ValueError("size must be >= 0")
         else:
-            raise TypeError('size must be an integer')
+            elf.__size = size
 
     def area(self):
-        """
-        finds area of square
-        Returns:
-            the area of the square
-        """
+        """Get area of square instance
 
+        Returns:
+            int: area of square
+        """
         return self.__size ** 2
