@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 """
 A module that sets size of square as private field
+
 """
+
 
 class Square:
     """Square class
 
     private instance field(s) : size
     methods: __init__
+
     """
 
     def __init__(self, size=0):
