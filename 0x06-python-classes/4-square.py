@@ -1,57 +1,50 @@
 #!/usr/bin/python3
-"""
-A blueprint for square objects
-"""
+"""Defines a class Square"""
 
 
-lass Square:
-    """Square class
-
-    private instance field(s) : size
-    methods: __init__, area
-
+class Square:
+    """Represents a square
+    Attributes:
+        __size (int): size of a side of the square
     """
-
     def __init__(self, size=0):
-        """initializes the class
-
+        """initializes the square
         Args:
-            size (int, optional): size of square. Defaults to 0.
+            size (int): size of a side of the square
+        Returns:
+            None
         """
-        if (type(size) is not int):
-            raise TypeError("size must be an integer")
-        elif (size < 0):
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.size = size
 
     def area(self):
-        """Get area of square instance
-
+        """calculates the square's area
         Returns:
-            int: area of square
+            The area of the square
         """
-        return self.__size ** 2
+        return (self.__size) ** 2
 
     @property
     def size(self):
-        """`size` getter
-
+        """getter of __size
         Returns:
-            int: `size`
+            The size of the square
         """
         return self.__size
 
     @size.setter
     def size(self, value):
-        """size` setter
-
+        """setter of __size
         Args:
-            value (int): new size
+            value (int): the size of a size of the square
+        Returns:
+            None
         """
-        if (type(value) is not int):
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif (value < 0):
-            raise ValueError("size must be >= 0")
         else:
-            self.__size = value
+            if value < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = value
+%s/\s\+$//e
+
