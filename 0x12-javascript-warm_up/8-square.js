@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 'use strict';
 console.log('Hello from ChatGPT!');
 const arg = process.argv[2];
