@@ -1,2 +1,5 @@
 #!/usr/bin/node
-exports.list = [1, 2, 3, 4, 5];
+const oldList = require('./100-data.js').list;
+const newList = oldList.map((value, index) => value * index);
+console.log(oldList);
+console.log(newList);
