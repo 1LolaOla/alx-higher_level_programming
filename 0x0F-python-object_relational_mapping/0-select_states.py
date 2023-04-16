@@ -3,10 +3,13 @@ import MySQLdb
 import sys
 
 # Connect to MySQL database
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+if __name__ == '__main__':
+    db_username = sys.argv[1]
+    db_password = sys.argv[2]
+    db_name = sys.argv[3]
+    db_host = "localhost"
+
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
 
 # Prepare a cursor object using cursor() method
 cursor = db.cursor()
