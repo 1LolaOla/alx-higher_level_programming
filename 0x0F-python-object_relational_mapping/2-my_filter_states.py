@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
-"""
-Displays all values in the states table of the database hbtn_0e_0_usa
-whose name matches that supplied as argument.
-"""
-from sys import argv
+"""Select States Module"""
+import sys
 import MySQLdb
+if __name__ == '__main__':
+    db_username = sys.argv[1]
+    db_password = sys.argv[2]
+    db_name = sys.argv[3]
+    db_host = "localhost"
+    state_name_searched = sys.argv[4]
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=argv[1], port=3306, host="localhost",
-                         passwd=argv[2], db=argv[3])
-    c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
-    id ASC".format(argv[4]))
-    states = c.fetchall()
-    for state in states:
-        if state[1] == argv[4]:
-            print(state)
-    c.close()
+    db = MySQLdb.connect(user=db_username, password=db_password,
+                         host=db_host, database=db_name)
+    cursor = db.cursor()
+    sqlquery = "SELECT * FROM states WHERE name LIKE\
+         BINARY {} ORDER BY id ASC".format('%s')
+    cursor.execute(sqlquery, (state_name_searched,))
+    rows = cursor.fetchall()
+    for i in rows:
+        print(i)
+    cursor.close()
     db.close()
