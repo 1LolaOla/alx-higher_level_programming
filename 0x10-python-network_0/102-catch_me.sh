@@ -1,4 +1,3 @@
 #!/bin/bash
-# Sends a request to 0.0.0.0:5000/catch_me and causes the server to respond with "You got me!"
-
-curl -s -L -X PUT "0.0.0.0:5000/catch_me" -H "Origin: HolbertonSchool" -d "user_id=98"
+# makes a req to 0.0.0.0:5000/catch_me for a response "You got me!"
+curl -sX PUT -L -d "user_id=98" --header "origin: HolbertonSchool" 0.0.0.0:5000/catch_me"
