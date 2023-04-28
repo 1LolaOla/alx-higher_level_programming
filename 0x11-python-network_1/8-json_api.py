@@ -1,22 +1,19 @@
 #!/usr/bin/python3
 "Make a post request"
 
-import requests
-import sys
+if __name__ == '__main__':
+    from sys import argv
+    from requests import post
 
+    url = 'http://0.0.0.0:5000/search_user'
+    letter = '' if len(argv) == 1 else argv[1]
+    res = post(url, data={'q': letter})
 
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        q = sys.argv[1]
-    else:
-        q = ""
-
-    response = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
-        json_response = response.json()
-        if json_response:
-            print("[{}] {}".format(json_response.get("id"), json_response.get("name")))
+        res_json = res.json()
+        if res_json == {}:
+            print('No result')
         else:
-            print("No result")
-    except ValueError:
-        print("Not a valid JSON")
+            print(f'[{res_json.get("id")}] {res_json.get("name")}')
+    except Exception:
+        print('Not a valid JSON')
